@@ -1,14 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Lists</h1>
+<%= t('welcome_html', username: current_user.email) %>
+
+<h1><%= t List.model_name.human %> </h1>
 
 <%= link_to 'New List', new_list_path %>
 
 <br>
 
 <% @lists.each do |list| %>
-  <h2><%= list.name %> <%= link_to "[+]", new_list_task_path(list) %> 
-                       <%= link_to '[Edit]', edit_list_path(list) %> 
+  <h2><%= list.name %> <%= link_to "[+]", new_list_task_path(list) %>
+                       <%= link_to '[Edit]', edit_list_path(list) %>
                        <%= link_to '[X]', list, method: :delete, data: { confirm: 'Are you sure?' } %></h2>
   <% if list.tasks.empty? %>
     <%= "Nenhuma tarefa.".html_safe  %>
@@ -17,7 +19,7 @@
       <thead>
         <tr>
           <th>Task</th>
-          <th colspan="3"></th>
+          <th colspan="2"></th>
         </tr>
       </thead>
 

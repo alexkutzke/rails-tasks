@@ -40,7 +40,11 @@ class TasksController < ApplicationController
     @task.done = @task.done ? false : true
     @task.save!
 
-    redirect_to lists_url
+    respond_to do |format|
+      format.html {redirect_to lists_url}
+      format.js
+    end
+
   end
 
   private
