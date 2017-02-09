@@ -1,0 +1,14 @@
+<tr>
+  <td>
+    <% if task.done? %>
+      <del><%= task.title %></del>
+    <% else %>
+      <%= task.title %>
+    <% end %>
+  </td>
+  <td>
+    <td></td>
+    <td><%= link_to (task.done? ? 'Undone!' : 'Done!'), done_list_task_path(task.list,task) %></td>
+    <td><%= link_to '[X]', [task.list,task], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </td>
+</tr>
