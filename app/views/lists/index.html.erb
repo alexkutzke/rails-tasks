@@ -9,7 +9,7 @@
 <% @lists.each do |list| %>
   <h2><%= list.name %> <%= link_to "[+]", new_list_task_path(list) %> 
                        <%= link_to '[Edit]', edit_list_path(list) %> 
-                       <%= link_to '[X] List', list, method: :delete, data: { confirm: 'Are you sure?' } %></h2>
+                       <%= link_to '[X]', list, method: :delete, data: { confirm: 'Are you sure?' } %></h2>
   <% if list.tasks.empty? %>
     <%= "Nenhuma tarefa.".html_safe  %>
   <% else %>
